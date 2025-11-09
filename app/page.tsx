@@ -1,5 +1,7 @@
-import styles from "./page.module.css";
+import styles from "./pages.module.css";
 import Image from "next/image";
+
+import ButtonLink from "@/app/_components/ButtonLink";
 
 type News = {
   id: string;
@@ -12,9 +14,8 @@ type News = {
 };
 
 const data: {
-  contents: News[];
-} = {
-  contents: [
+  contents: News[] } = {
+    contents: [
     {
       id: "1",
       title: "渋谷にオフィスを移転しました",
@@ -57,14 +58,9 @@ export default function Home() {
             私たちは市場をリードしているグローバルテックカンパニーです。
           </p>
         </div>
-        <Image
-          className={styles.bgimg}
-          src="/img-mv.jpg"
-          alt=""
-          width={4000}
-          height={1200}
-        />
+        <Image className={styles.bgimg} src="/img-mv.jpg" alt="" width={4000} height={1200} />
       </section>
+
       <section className={styles.news}>
         <h2 className={styles.newsTitle}>News</h2>
         <ul>
@@ -78,13 +74,13 @@ export default function Home() {
                 width={1200}
                 height={630}
               />
-              <dl className={styles.meta}>
+              <dl className={styles.content}>
                 <dt className={styles.newsItemTitle}>{article.title}</dt>
                   <dd className={styles.meta}>
                     <span className={styles.tag}>{article.category.name}</span>
                       <span className={styles.date}>
                       <Image
-                        src="/clock,svg"
+                        src="/clock.svg"
                         alt=""
                         width={16}
                         height={16}
@@ -98,6 +94,9 @@ export default function Home() {
             </li>
           ))}
         </ul>
+        <div className={styles.newsLink}>
+          <ButtonLink href="/news">もっとみる</ButtonLink>
+        </div>
       </section>
     </>
   );

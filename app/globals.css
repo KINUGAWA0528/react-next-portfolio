@@ -1,3 +1,14 @@
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.description {
+  text-align: center;
+}
+
 :root {
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
@@ -31,7 +42,7 @@ body {
 }
 
 body {
-  font-family: -appple-system, BlingkMacSystemFont, "Helvetica Neue", YuGothic,
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic,
     "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, "メイリオ", Meiryo,
     sans-serif;
   color: var(--color-text-main);

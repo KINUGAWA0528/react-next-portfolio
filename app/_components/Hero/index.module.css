@@ -1,0 +1,39 @@
+.container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    overflow: hidden;
+    padding: 100px 0;
+}
+
+.sub::before {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 20px;
+    background-color: var(--color-text-unpainted);
+}
+
+.sub::after {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 20px;
+    background-color: var(--color-text-unpainted);
+}
+
+.bgimg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 600px;
+    width: 100%;
+    object-fit: cover;
+    object-position: right;
+    align-items: center;
+    justify-content: center;
+    z-index: -1;
+}

@@ -23,3 +23,31 @@
     font-weight: bold;
     margin-bottom: 0.5rem;
 }
+
+.meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+@media (max-width: 640px) {
+    .link{
+        display: block;
+        padding: 16px 0;
+    }
+    .image {
+        display: none;
+    }
+
+    .title {
+        font-size: 1rem;
+        font-weight: bold;
+        margin-bottom: 0.4rem;
+    }
+
+    .meta {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+}

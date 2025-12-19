@@ -65,27 +65,22 @@ export async function createContactData(_precState: any, formData: FormData) {
       body: JSON.stringify({
         fields: [
           {
-            objectTypeId: "0-1",
             name: "lastname",
             value: rawFormData.lastname,
           },
           {
-            objectTypeId: "0-1",
             name: "firstname",
             value: rawFormData.firstname,
           },
           {
-            objectTypeId: "0-1",
             name: "company",
             value: rawFormData.company,
           },
           {
-            objectTypeId: "0-1",
             name: "email",
             value: rawFormData.email,
           },
           {
-            objectTypeId: "0-1",
             name: "message",
             value: rawFormData.message,
           },

@@ -9,9 +9,17 @@
   padding: 100px 0;
 }
 
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
 .sub {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 20px;
 }
 

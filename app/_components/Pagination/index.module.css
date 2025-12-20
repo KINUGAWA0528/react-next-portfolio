@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 40px;
+}
+
+.list {
+  list-style: none;
+}
+
+.link,
+.current {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--border-radius);
+  background-color: var(--color-bg-sub);
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.link:hover {
+  background-color: var(--color-bg-painted);
+  color: var(--color-text-unpainted);
+}
+
+.current {
+  background-color: var(--color-bg-painted);
+  color: var(--color-text-unpainted);
+}

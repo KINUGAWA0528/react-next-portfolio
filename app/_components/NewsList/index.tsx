@@ -36,7 +36,17 @@ export default function NewsList({ news }: Props) {
                 height={630}
               />
             )}
-            <div className={styles.content}></div>
+            <div className={styles.content}>
+              <h3 className={styles.title}>{article.title}</h3>
+              <dl className={styles.meta}>
+                <dt>
+                  <Category category={article.category} />
+                </dt>
+                <dd>
+                  <Date date={article.publishedAt ?? article.createdAt} />
+                </dd>
+              </dl>
+            </div>
           </Link>
         </li>
       ))}

@@ -3,29 +3,38 @@ import Link from "next/link";
 import styles from "./index.module.css";
 
 type Props = {
-    totalCount: number;
-    current?: number;
-    basePath?: string;
+  totalCount: number;
+  current?: number;
+  basePath?: string;
+  limit?: number;
 };
 
-export default function Pagination({ totalCount, current = 1, basePath = "/news" }: Props) {
-    const pages = Array.from(
-        { length: Math.ceil(totalCount / NEWS_LIST_LIMIT) },(_, i) => i + 1
-    );
+export default function Pagination({
+  totalCount,
+  current = 1,
+  basePath = "/news",
+  limit = NEWS_LIST_LIMIT,
+}: Props) {
+  const pages = Array.from(
+    { length: Math.ceil(totalCount / limit) },
+    (_, i) => i + 1
+  );
 
-    return (
-        <nav>
-            <ul className={styles.container}>
-                {pages.map((p) => (
-                    <li className={styles.list} key={p}>
-                        {current !== p ? (
-                            <Link href={`${basePath}/p/${p}`} className={styles.link}>{p}</Link>
-                        ) : (
-                            <span className={styles.current}>{p}</span>
-                        )}
-                    </li>
-                ))}
-            </ul>
-        </nav>
-    );
+  return (
+    <nav>
+      <ul className={styles.container}>
+        {pages.map((p) => (
+          <li className={styles.list} key={p}>
+            {current !== p ? (
+              <Link href={`${basePath}/p/${p}`} className={styles.link}>
+                {p}
+              </Link>
+            ) : (
+              <span className={styles.current}>{p}</span>
+            )}
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
 }

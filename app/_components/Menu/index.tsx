@@ -7,42 +7,42 @@ import cx from "classnames";
 import styles from "./index.module.css";
 
 export default function Menu() {
-    const [isOpen, setOpen] = useState<boolean>(false);
-    const open =() => setOpen(true);
-    const close = () => setOpen(false);
-    return (
-        <div>
-        <nav className={cx(styles.nav, isOpen && styles.open)}>
-            <ul className={styles.items}>
-                <li>
-                    <Link href="/about">ABOUT</Link>
-                </li>
-                <li>
-                    <Link href="/news">NEWS</Link>
-                </li>
-                <li>
-                    <Link href="/works">WORKS</Link>
-                </li>
-                <li>
-                    <Link href="/blog">BLOG</Link>
-                </li>
-                <li>
-                    <Link href="/contact">CONTACT</Link>
-                </li>
-            </ul>
-            <button className={cx(styles.button, styles.close)} onClick={close}>
-                <Image
-                    src="/close.svg"
-                    alt="閉じる"
-                    width={24}
-                    height={24}
-                    priority
-                />
-            </button>
-        </nav>
-        <button className={styles.button} onClick={open}>
-            <Image src="/menu.svg" alt="メニュー" width={24} height={24} />
+  const [isOpen, setOpen] = useState<boolean>(false);
+  const open = () => setOpen(true);
+  const close = () => setOpen(false);
+  return (
+    <div>
+      <nav className={cx(styles.nav, isOpen && styles.open)}>
+        <ul className={styles.items}>
+          <li>
+            <Link href="/">HOME</Link>
+          </li>
+          <li>
+            <Link href="/profile">PROFILE</Link>
+          </li>
+          <li>
+            <Link href="/works">WORKS</Link>
+          </li>
+          <li>
+            <Link href="/blog">BLOG</Link>
+          </li>
+          <li>
+            <Link href="/contact">CONTACT</Link>
+          </li>
+        </ul>
+        <button className={cx(styles.button, styles.close)} onClick={close}>
+          <Image
+            src="/close.svg"
+            alt="閉じる"
+            width={24}
+            height={24}
+            priority
+          />
         </button>
-        </div>
-    );
+      </nav>
+      <button className={styles.button} onClick={open}>
+        <Image src="/menu.svg" alt="メニュー" width={24} height={24} />
+      </button>
+    </div>
+  );
 }

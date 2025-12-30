@@ -1,29 +1,36 @@
 .footer {
-    padding: 16px 24px;
-    text-align: center;
-    color: var(--color-text-sub);
-    font-size: 0.8rem;
-    margin-top: 80px;
+  padding: 40px 24px;
+  text-align: center;
+  color: #fff;
+  background-color: #000;
+  font-size: 0.8rem;
+  margin-top: 80px;
 }
 
 .nav {
-    margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 
 .items {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    font-size: 1rem;
-    white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  font-size: 1rem;
+  white-space: nowrap;
+  font-weight: bold;
+}
+
+.items a {
+  color: #fff;
+  text-decoration: none;
 }
 
 @media (max-width: 640px) {
-    .items {
-        flex-wrap: wrap;
-        gap: 8px 0;
-    }
-    .item {
-        width: 50%;
-    }
+  .items {
+    flex-wrap: wrap;
+    gap: 8px 0;
+  }
+  .item {
+    width: 50%;
+  }
 }

@@ -1,0 +1,23 @@
+.workContent {
+  max-height: 600px;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.workContent img {
+  max-width: 100%;
+  height: auto;
+}
+
+.workContent h2 {
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #333;
+  padding-bottom: 0.2rem;
+}
+
+.workContent p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}

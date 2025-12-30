@@ -13,26 +13,32 @@
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
-  --color-text-main: #333;
-  --color-text-sub: #999;
+  --color-text-main: #000;
+  --color-text-sub: #666;
   --color-text-unpainted: #fff;
   --color-text-error: #f33;
   --color-bg-main: #fff;
   --color-bg-sub: #f3f3f3;
   --color-bg-code: #fafafa;
-  --color-bg-painted: #333;
-  --color-border-dark: #333;
-  --color-border: #ddd;
-  --color-borderlight: #f3f3f3;
-  --color-current: #eee;
-  --color-button-primary: #333;
-  --border-radius: 4px;
+  --color-bg-painted: #000;
+  --color-border-dark: #000;
+  --color-border: #000;
+  --color-border-light: #ccc;
+  --color-current: #000;
+  --color-button-primary: #000;
+  --color-accent: #000;
+  --border-radius: 0px;
 }
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+::selection {
+  background: #000;
+  color: #fff;
 }
 
 html,
@@ -42,11 +48,12 @@ body {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic,
-    "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, "メイリオ", Meiryo,
-    sans-serif;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", Meiryo, sans-serif;
   color: var(--color-text-main);
   line-height: 1.8;
+  letter-spacing: 0.05em;
+  background-color: #fff;
 }
 
 code {

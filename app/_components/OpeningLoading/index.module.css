@@ -1,0 +1,59 @@
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.content {
+  text-align: center;
+}
+
+.text {
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.bar {
+  width: 200px;
+  height: 2px;
+  background-color: #eee;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background-color: #000;
+  animation: progress 2s ease-in-out forwards;
+}
+
+@keyframes progress {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}

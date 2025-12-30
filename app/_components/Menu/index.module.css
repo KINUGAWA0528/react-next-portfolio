@@ -1,51 +1,58 @@
 .items {
-    display: flex;
-    color: #fff;
-    gap: 40px;
+  display: flex;
+  color: #fff;
+  gap: 40px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+}
+
+.items a {
+  transition: color 0.3s ease;
+}
+
+.items a:hover {
+  color: var(--color-accent);
 }
 
 .button {
-    display: none;
+  display: none;
 }
 
 @media (max-width: 640px) {
-    .nav {
-        display: none;
-    }
-    .button {
-        display: flex;
-        background: none;
-        border: none;
-        cursor: pointer;
-    }
+  .nav {
+    display: none;
+  }
 
-    .nav {
-        display: block;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: var(--color-bg-painted);
-        color: var(--color-text-unpainted);
-        padding: 24px 16px;
-    }
+  .nav.open {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-bg-painted);
+    color: var(--color-text-unpainted);
+    padding: 24px 16px;
+    z-index: 100;
+  }
 
-    .items {
-        flex-direction: column;
-        gap: 24px;
-    }
+  .items {
+    flex-direction: column;
+    gap: 24px;
+    font-size: 1.2rem;
+  }
 
-    .button {
-        display: flex;
-        background: none;
-        border: none;
-        cursor: pointer;
-    }
+  .button {
+    display: flex;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
 
-    .close {
-        position: absolute;
-        top: 24px;
-        right: 16px;
-    }
+  .close {
+    position: absolute;
+    top: 24px;
+    right: 16px;
+  }
 }

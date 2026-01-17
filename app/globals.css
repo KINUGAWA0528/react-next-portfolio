@@ -13,20 +13,20 @@
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
-  --color-text-main: #000;
-  --color-text-sub: #666;
-  --color-text-unpainted: #fff;
+  --color-text-main: #fff;
+  --color-text-sub: #ccc;
+  --color-text-unpainted: #000;
   --color-text-error: #f33;
-  --color-bg-main: #fff;
-  --color-bg-sub: #f3f3f3;
-  --color-bg-code: #fafafa;
-  --color-bg-painted: #000;
-  --color-border-dark: #000;
-  --color-border: #000;
-  --color-border-light: #ccc;
-  --color-current: #000;
-  --color-button-primary: #000;
-  --color-accent: #000;
+  --color-bg-main: #000;
+  --color-bg-sub: #111;
+  --color-bg-code: #222;
+  --color-bg-painted: #fff;
+  --color-border-dark: #fff;
+  --color-border: #fff;
+  --color-border-light: #444;
+  --color-current: #fff;
+  --color-button-primary: #fff;
+  --color-accent: #fff;
   --border-radius: 0px;
 }
 
@@ -37,8 +37,8 @@
 }
 
 ::selection {
-  background: #000;
-  color: #fff;
+  background: #fff;
+  color: #000;
 }
 
 html,
@@ -53,7 +53,7 @@ body {
   color: var(--color-text-main);
   line-height: 1.8;
   letter-spacing: 0.05em;
-  background-color: #fff;
+  background-color: var(--color-bg-main);
 }
 
 code {

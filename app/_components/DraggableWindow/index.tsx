@@ -43,7 +43,7 @@ const DraggableWindow = forwardRef<HTMLDivElement, Props>(
 
     useImperativeHandle(ref, () => nodeRef.current as HTMLDivElement);
 
-    const handleMouseDown = (e: React.MouseEvent) => {
+    const handleMouseDown = (e: any) => {
       setZIndex(getNextZIndex());
       if (onMouseDown) {
         onMouseDown(e);
@@ -67,8 +67,25 @@ const DraggableWindow = forwardRef<HTMLDivElement, Props>(
         >
           <div className={styles.header}>
             <span className={styles.title}>{title}</span>
-            <button onClick={onClose} className={styles.closeButton}>
-              ×
+            <button
+              onClick={onClose}
+              className={styles.closeButton}
+              aria-label="Close"
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                style={{ display: "block" }}
+              >
+                <path
+                  d="M1 1L13 13M1 13L13 1"
+                  stroke="currentColor"
+                  strokeWidth="1"
+                />
+              </svg>
             </button>
           </div>
           <div className={styles.content}>{children}</div>

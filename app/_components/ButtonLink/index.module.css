@@ -1,7 +1,7 @@
 .button {
   display: block;
   padding: 20px 40px;
-  border-radius: var(--border-radius);
+  border-radius: 50px;
   width: 300px;
   background: url("/arrow-right.svg") no-repeat right 20px center,
     var(--color-button-primary);

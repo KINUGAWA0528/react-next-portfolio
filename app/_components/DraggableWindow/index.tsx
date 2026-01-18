@@ -36,7 +36,7 @@ const DraggableWindow = forwardRef<HTMLDivElement, Props>(
       bounds = "body",
       onMouseDown,
     },
-    ref
+    ref,
   ) => {
     const nodeRef = useRef<HTMLDivElement>(null);
     const [zIndex, setZIndex] = useState(1000);
@@ -67,32 +67,51 @@ const DraggableWindow = forwardRef<HTMLDivElement, Props>(
         >
           <div className={styles.header}>
             <span className={styles.title}>{title}</span>
-            <button
-              onClick={onClose}
-              className={styles.closeButton}
-              aria-label="Close"
-            >
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 14 14"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                style={{ display: "block" }}
-              >
-                <path
-                  d="M1 1L13 13M1 13L13 1"
-                  stroke="currentColor"
-                  strokeWidth="1"
-                />
-              </svg>
-            </button>
+            <div className={styles.controls}>
+              {onClose ? (
+                <button
+                  onClick={onClose}
+                  className={styles.closeButton}
+                  aria-label="Close"
+                >
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M1 1L11 11M1 11L11 1"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                    />
+                  </svg>
+                </button>
+              ) : (
+                <div className={styles.cross}>
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M1 1L11 11M1 11L11 1"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                    />
+                  </svg>
+                </div>
+              )}
+            </div>
           </div>
           <div className={styles.content}>{children}</div>
         </div>
       </Draggable>
     );
-  }
+  },
 );
 
 DraggableWindow.displayName = "DraggableWindow";

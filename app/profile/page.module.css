@@ -1,0 +1,66 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 20px 0;
+}
+
+.profileHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.avatar {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 8px;
+}
+
+.content {
+  line-height: 1.8;
+}
+
+.dl {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 12px;
+}
+
+.dt {
+  font-weight: bold;
+}
+
+.dd {
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .dl {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .dd {
+    margin-bottom: 12px;
+  }
+}

@@ -4,10 +4,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #000;
   color: #fff;
   overflow: hidden;
-  padding: 100px 0;
+  padding: 270px 0 100px;
 }
 
 .title {

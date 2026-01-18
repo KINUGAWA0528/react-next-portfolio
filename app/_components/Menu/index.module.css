@@ -1,17 +1,25 @@
 .items {
   display: flex;
   color: #fff;
-  gap: 40px;
+  gap: 10px;
   font-weight: bold;
-  letter-spacing: 0.1em;
+  letter-spacing: 0;
 }
 
-.items a {
-  transition: color 0.3s ease;
+.link {
+  display: block;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+  border-radius: 9999px;
 }
 
-.items a:hover {
+.link:hover {
   color: var(--color-accent);
+}
+
+.active {
+  border-color: #fff;
 }
 
 .button {

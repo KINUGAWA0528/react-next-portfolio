@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./index.module.css";
 
 type Props = {
@@ -14,8 +15,8 @@ export default function ButtonLink({
   const className =
     color === "event" ? `${styles.button} ${styles.event}` : styles.button;
   return (
-    <a href={href} className={className}>
+    <Link href={href} className={className}>
       {children}
-    </a>
+    </Link>
   );
 }

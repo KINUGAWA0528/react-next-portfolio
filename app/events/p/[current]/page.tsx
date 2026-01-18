@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { getEventList } from "@/app/_libs/microcms";
-import NewsList from "@/app/_components/NewsList";
+import EventList from "@/app/_components/EventList";
 import Pagination from "@/app/_components/Pagination";
 import { EVENT_LIST_LIMIT } from "@/app/_constants";
 
@@ -28,7 +28,7 @@ export default async function Page({ params }: Props) {
 
   return (
     <>
-      <NewsList news={events} basePath="/events" />
+      <EventList events={events} />
       <Pagination
         totalCount={totalCount}
         current={current}

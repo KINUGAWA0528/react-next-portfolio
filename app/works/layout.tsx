@@ -8,10 +8,5 @@ type Props = {
 export const revalidate = 60;
 
 export default function WorksLayout({ children }: Props) {
-    return (
-        <>
-            <Hero title="Works" sub="制作実績" />
-            <Sheet>{children}</Sheet>
-        </>
-    );
+  return <>{children}</>;
 }

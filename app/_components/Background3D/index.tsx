@@ -52,7 +52,7 @@ function Bubble({
       <Float speed={speed} rotationIntensity={1} floatIntensity={2}>
         <Sphere args={[1, 32, 32]} scale={scale}>
           <MeshDistortMaterial
-            color={color}
+            color="white"
             speed={2}
             distort={0.4}
             radius={1}
@@ -65,7 +65,12 @@ function Bubble({
 
 export default function Background3D() {
   const pathname = usePathname();
-  if (pathname === "/contact") {
+  if (
+    pathname === "/contact" ||
+    pathname?.startsWith("/profile") ||
+    pathname?.startsWith("/works") ||
+    pathname?.startsWith("/blog")
+  ) {
     return null;
   }
   return (

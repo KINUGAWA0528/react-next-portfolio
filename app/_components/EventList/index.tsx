@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 
 import styles from "./index.module.css";
@@ -10,9 +9,10 @@ import { Event } from "@/app/_libs/microcms";
 
 type Props = {
   events: Event[];
+  onSelect?: (event: Event, position: { x: number; y: number }) => void;
 };
 
-export default function EventList({ events }: Props) {
+export default function EventList({ events, onSelect }: Props) {
   if (events.length === 0) {
     return <p>記事がありません。</p>;
   }
@@ -20,24 +20,16 @@ export default function EventList({ events }: Props) {
     <ul>
       {events.map((article) => (
         <li key={article.id} className={styles.list}>
-          <Link href={`/events/${article.id}`} className={styles.link}>
-            {article.thumbnail ? (
-              <Image
-                src={article.thumbnail.url}
-                alt=""
-                className={styles.image}
-                width={article.thumbnail.width}
-                height={article.thumbnail.height}
-              />
-            ) : (
-              <Image
-                className={styles.image}
-                src="/no-image.png"
-                alt="No Image"
-                width={1200}
-                height={630}
-              />
-            )}
+          <Link
+            href={`/events/${article.id}`}
+            className={styles.link}
+            onClick={(e) => {
+              if (onSelect) {
+                e.preventDefault();
+                onSelect(article, { x: e.pageX, y: e.pageY });
+              }
+            }}
+          >
             <div className={styles.content}>
               <h3 className={styles.title}>{article.title}</h3>
               <dl className={styles.meta}>

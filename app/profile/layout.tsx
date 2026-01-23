@@ -6,10 +6,5 @@ type Props = {
 };
 
 export default function ProfileLayout({ children }: Props) {
-  return (
-    <>
-      <Hero title="Profile" sub="プロフィール" />
-      <Sheet>{children}</Sheet>
-    </>
-  );
+  return <>{children}</>;
 }

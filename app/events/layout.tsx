@@ -8,10 +8,5 @@ type Props = {
 export const revalidate = 60;
 
 export default function EventsLayout({ children }: Props) {
-  return (
-    <>
-      <Hero title="Event" sub="イベント" />
-      <Sheet>{children}</Sheet>
-    </>
-  );
+  return <>{children}</>;
 }

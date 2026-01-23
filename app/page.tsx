@@ -6,13 +6,14 @@ import {
   TOP_WORKS_LIMIT,
   TOP_EVENT_LIMIT,
 } from "@/app/_constants";
-import EventList from "@/app/_components/EventList";
+import EventSection from "@/app/_components/EventSection";
 import BlogList from "@/app/_components/BlogList";
 import WorksList from "@/app/_components/WorksList";
 import ButtonLink from "@/app/_components/ButtonLink";
 import BlogSection from "@/app/_components/BlogSection";
 import WorksSection from "@/app/_components/WorksSection";
 import Windows from "@/app/_components/Windows";
+import HomeTitle from "@/app/_components/HomeTitle";
 
 export const revalidate = 60;
 
@@ -32,27 +33,20 @@ export default async function Home() {
   return (
     <>
       <Windows />
-      <section className={styles.top}>
-        <div className={styles.content}>
-          <h1 className={styles.title}>PORTFOLIO</h1>
-          <p className={styles.description}>Design & Technology</p>
-        </div>
-      </section>
+      <HomeTitle />
 
       <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>EVENT_</h2>
-        <EventList events={eventData.contents} />
+        <h2 className={styles.sectionTitle}>EVENT</h2>
+        <EventSection events={eventData.contents} />
         <div className={styles.linkButton}>
           <ButtonLink href="/events">VIEW MORE</ButtonLink>
         </div>
       </section>
 
       <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>WORKS_</h2>
+        <h2 className={styles.sectionTitle}>WORKS</h2>
         <p className={styles.sectionDescription}>
-          
           <br />
-          
         </p>
         <WorksSection works={worksData.contents} />
         <div className={styles.linkButton}>
@@ -61,7 +55,7 @@ export default async function Home() {
       </section>
 
       <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>BLOG_</h2>
+        <h2 className={styles.sectionTitle}>BLOG</h2>
         <BlogSection blogs={blogData.contents} />
         <div className={styles.linkButton}>
           <ButtonLink href="/blog">VIEW MORE</ButtonLink>

@@ -17,6 +17,7 @@ type Props = {
   defaultPosition?: { x: number; y: number };
   style?: React.CSSProperties;
   onDrag?: DraggableEventHandler;
+  onStop?: DraggableEventHandler;
   bounds?:
     | string
     | { left: number; top: number; right: number; bottom: number }
@@ -33,6 +34,7 @@ const DraggableWindow = forwardRef<HTMLDivElement, Props>(
       defaultPosition,
       style,
       onDrag,
+      onStop,
       bounds = "body",
       onMouseDown,
     },
@@ -56,6 +58,7 @@ const DraggableWindow = forwardRef<HTMLDivElement, Props>(
         handle={`.${styles.header}`}
         defaultPosition={defaultPosition}
         onDrag={onDrag}
+        onStop={onStop}
         onMouseDown={handleMouseDown}
         bounds={bounds}
       >

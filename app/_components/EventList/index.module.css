@@ -9,20 +9,12 @@
   display: flex;
   align-items: center;
   gap: 40px;
-  padding: 24px 0;
+  padding: 24px 20px;
   transition: background-color 0.3s ease;
 }
 
 .link:hover {
   background-color: var(--color-bg-sub);
-}
-
-.image {
-  width: auto;
-  height: 120px;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  border-radius: 0;
 }
 
 .title {
@@ -40,10 +32,7 @@
 @media (max-width: 640px) {
   .link {
     display: block;
-    padding: 16px 0;
-  }
-  .image {
-    display: none;
+    padding: 16px 20px;
   }
 
   .title {

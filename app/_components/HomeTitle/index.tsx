@@ -38,6 +38,20 @@ export default function HomeTitle() {
         >
           {isCompleted ? "Welcome, Administrator." : "Design & Technology"}
         </p>
+        {!isCompleted && (
+          <p
+            style={{
+              color: "#fff",
+              fontSize: "1.25rem",
+              marginTop: "1.5rem",
+              opacity: 0.8,
+              fontWeight: 500,
+              textAlign: "center",
+            }}
+          >
+            ウィンドウを移動してアンロック
+          </p>
+        )}
       </div>
     </section>
   );

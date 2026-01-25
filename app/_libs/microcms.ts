@@ -38,6 +38,7 @@ export type Works = {
   content: string;
   body?: MicroCMSImage;
   category: Category;
+  date?: string;
 } & MicroCMSListContent;
 
 export type Event = {
@@ -46,6 +47,7 @@ export type Event = {
   content: string;
   thumbnail?: MicroCMSImage;
   category: Category;
+  date?: string;
 } & MicroCMSListContent;
 
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {

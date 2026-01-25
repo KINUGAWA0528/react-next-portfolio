@@ -58,6 +58,18 @@ export default function Windows() {
     photo: false,
   });
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 640);
+    };
+    
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   useEffect(() => {
     const allCorrect = Object.values(correctlyPlaced).every((v) => v);
     setIsCompleted(allCorrect);
@@ -65,13 +77,13 @@ export default function Windows() {
 
   const checkPosition = (id: string, x: number, y: number) => {
     // Basic quadrant check relative to center start
-    // Top-Left: x < -50, y < -50
-    // Top-Right: x > 50, y < -50
-    // Bottom-Left: x < -50, y > 50
-    // Bottom-Right: x > 50, y > 50
+    // Top-Left: x < -20, y < -20
+    // Top-Right: x > 20, y < -20
+    // Bottom-Left: x < -20, y > 20
+    // Bottom-Right: x > 20, y > 20
 
     let isCorrect = false;
-    const threshold = 50;
+    const threshold = 20;
 
     switch (id) {
       case "system": // Top-Left
@@ -91,7 +103,10 @@ export default function Windows() {
     setCorrectlyPlaced((prev) => ({ ...prev, [id]: isCorrect }));
   };
 
-  const centerStyle: React.CSSProperties = { top: "35%", left: "35%" };
+  const systemStyle: React.CSSProperties = { top: "15%", left: "10%" };
+  const welcomeStyle: React.CSSProperties = { top: "15%", left: "60%" };
+  const profileStyle: React.CSSProperties = { top: "55%", left: "5%" };
+  const photoStyle: React.CSSProperties = { top: "60%", left: "65%" };
 
   const getStatusStyle = (id: string, baseColor: string) => ({
     color: correctlyPlaced[id] ? "#4ade80" : baseColor,
@@ -102,19 +117,20 @@ export default function Windows() {
     <>
       {/* System Info - Target: Top Left */}
       <WindowItem
-        width="300px"
-        height="200px"
-        style={centerStyle}
+        width={isMobile ? "120px" : "300px"}
+        height={isMobile ? "100px" : "200px"}
+        style={systemStyle}
         onStop={(e, data) => checkPosition("system", data.x, data.y)}
       >
         <div
-          style={{ padding: "20px", color: "#fff", fontFamily: "monospace" }}
+          style={{ padding: isMobile ? "6px" : "20px", color: "#fff", fontFamily: "monospace", fontSize: isMobile ? "0.6rem" : "1rem" }}
         >
           <h3
             style={{
               marginBottom: "10px",
               borderBottom: `1px solid ${correctlyPlaced.system ? "#4ade80" : "#fff"}`,
               transition: "border-color 0.3s",
+              fontSize: isMobile ? "0.65rem" : "1rem",
             }}
           >
             SYSTEM {correctlyPlaced.system && "✓"}
@@ -128,34 +144,34 @@ export default function Windows() {
 
       {/* Welcome - Target: Top Right */}
       <WindowItem
-        width="400px"
-        height="250px"
-        style={centerStyle}
+        width={isMobile ? "140px" : "400px"}
+        height={isMobile ? "110px" : "250px"}
+        style={welcomeStyle}
         onStop={(e, data) => checkPosition("welcome", data.x, data.y)}
       >
-        <div style={{ padding: "20px", color: "#fff" }}>
+        <div style={{ padding: isMobile ? "6px" : "20px", color: "#fff" }}>
           <h2
             style={{
-              fontSize: "2rem",
+              fontSize: isMobile ? "0.85rem" : "2rem",
               marginBottom: "10px",
               ...getStatusStyle("welcome", "#fff"),
             }}
           >
             Welcome {correctlyPlaced.welcome && "✓"}
           </h2>
-          <p>Drag me to Top-Right!</p>
+          <p style={{ fontSize: isMobile ? "0.6rem" : "1rem" }}>Drag me to Top-Right!</p>
         </div>
       </WindowItem>
 
       {/* Profile - Target: Bottom Left */}
       <WindowItem
-        width="250px"
-        height="350px"
-        style={centerStyle}
+        width={isMobile ? "110px" : "250px"}
+        height={isMobile ? "110px" : "220px"}
+        style={profileStyle}
         onStop={(e, data) => checkPosition("profile", data.x, data.y)}
       >
-        <div style={{ padding: "20px", color: "#fff" }}>
-          <h3 style={getStatusStyle("profile", "#fff")}>
+        <div style={{ padding: isMobile ? "6px" : "20px", color: "#fff", fontSize: isMobile ? "0.6rem" : "1rem" }}>
+          <h3 style={{ ...getStatusStyle("profile", "#fff"), fontSize: isMobile ? "0.65rem" : "1rem" }}>
             Profile {correctlyPlaced.profile && "✓"}
           </h3>
           <p>Target: Bottom-Left</p>
@@ -169,9 +185,9 @@ export default function Windows() {
 
       {/* Photo - Target: Bottom Right */}
       <WindowItem
-        width="350px"
-        height="250px"
-        style={centerStyle}
+        width={isMobile ? "130px" : "350px"}
+        height={isMobile ? "110px" : "250px"}
+        style={photoStyle}
         onStop={(e, data) => checkPosition("photo", data.x, data.y)}
       >
         <div
@@ -186,6 +202,8 @@ export default function Windows() {
             justifyContent: "center",
             color: correctlyPlaced.photo ? "#4ade80" : "rgba(255,255,255,0.5)",
             transition: "all 0.3s",
+            fontSize: isMobile ? "0.6rem" : "1rem",
+            padding: isMobile ? "4px" : "0",
           }}
         >
           {correctlyPlaced.photo ? "PHOTO LOCKED" : "Target: Bottom-Right"}

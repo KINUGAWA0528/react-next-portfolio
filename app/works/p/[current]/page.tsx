@@ -3,6 +3,7 @@ import { getWorksList } from "@/app/_libs/microcms";
 import WorksList from "@/app/_components/WorksList";
 import Pagination from "@/app/_components/Pagination";
 import { WORKS_LIST_LIMIT } from "@/app/_constants";
+import styles from "../../../pages.module.css";
 
 type Props = {
   params: {
@@ -27,7 +28,8 @@ export default async function Page({ params }: Props) {
   }
 
   return (
-    <>
+    <section className={styles.section}>
+      <h2 className={styles.sectionTitle}>WORKS</h2>
       <WorksList works={works} />
       <Pagination
         totalCount={totalCount}
@@ -35,6 +37,6 @@ export default async function Page({ params }: Props) {
         basePath="/works"
         limit={WORKS_LIST_LIMIT}
       />
-    </>
+    </section>
   );
 }

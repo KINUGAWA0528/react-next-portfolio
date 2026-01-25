@@ -55,7 +55,13 @@ export default function WorksList({ works, onSelect }: Props) {
                   <Category category={article.category} />
                 </dt>
                 <dd>
-                  <Date date={article.publishedAt ?? article.createdAt} />
+                  <Date
+                    date={
+                      article.date ??
+                      article.publishedAt ??
+                      article.createdAt
+                    }
+                  />
                 </dd>
               </dl>
             </div>

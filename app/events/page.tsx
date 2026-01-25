@@ -7,12 +7,19 @@ import styles from "../pages.module.css";
 export default async function Page() {
   const { contents: events, totalCount } = await getEventList({
     limit: EVENT_LIST_LIMIT,
+    orders: "-date",
+  });
+
+  const sortedEvents = [...events].sort((a, b) => {
+    const getDate = (e: typeof a) =>
+      e.date || e.publishedAt || e.createdAt || "1970-01-01";
+    return new Date(getDate(b)).getTime() - new Date(getDate(a)).getTime();
   });
 
   return (
     <section className={styles.section}>
       <h2 className={styles.sectionTitle}>EVENT</h2>
-      <EventSection events={events} />
+      <EventSection events={sortedEvents} />
       <Pagination
         totalCount={totalCount}
         basePath="/events"

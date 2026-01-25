@@ -5,13 +5,22 @@ import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import cx from "classnames";
+import { usePuzzle } from "@/app/_context/PuzzleContext";
 import styles from "./index.module.css";
 
 export default function Menu() {
   const [isOpen, setOpen] = useState<boolean>(false);
   const pathname = usePathname();
+  const { isCompleted } = usePuzzle();
   const open = () => setOpen(true);
   const close = () => setOpen(false);
+  
+  const handleLinkClick = (e: React.MouseEvent) => {
+    // Only lock navigation on home page when not completed
+    if (pathname === "/" && !isCompleted) {
+      e.preventDefault();
+    }
+  };
 
   // パスが一致するか判定するヘルパー
   const isActive = (path: string) => {
@@ -27,6 +36,8 @@ export default function Menu() {
             <Link
               href="/"
               className={cx(styles.link, isActive("/") && styles.active)}
+              onClick={handleLinkClick}
+              style={{ pointerEvents: pathname === "/" && !isCompleted ? "none" : "auto", opacity: pathname === "/" && !isCompleted ? 0.5 : 1 }}
             >
               HOME
             </Link>
@@ -35,6 +46,8 @@ export default function Menu() {
             <Link
               href="/profile"
               className={cx(styles.link, isActive("/profile") && styles.active)}
+              onClick={handleLinkClick}
+              style={{ pointerEvents: pathname === "/" && !isCompleted ? "none" : "auto", opacity: pathname === "/" && !isCompleted ? 0.5 : 1 }}
             >
               PROFILE
             </Link>
@@ -43,6 +56,8 @@ export default function Menu() {
             <Link
               href="/works"
               className={cx(styles.link, isActive("/works") && styles.active)}
+              onClick={handleLinkClick}
+              style={{ pointerEvents: pathname === "/" && !isCompleted ? "none" : "auto", opacity: pathname === "/" && !isCompleted ? 0.5 : 1 }}
             >
               WORKS
             </Link>
@@ -51,6 +66,8 @@ export default function Menu() {
             <Link
               href="/blog"
               className={cx(styles.link, isActive("/blog") && styles.active)}
+              onClick={handleLinkClick}
+              style={{ pointerEvents: pathname === "/" && !isCompleted ? "none" : "auto", opacity: pathname === "/" && !isCompleted ? 0.5 : 1 }}
             >
               BLOG
             </Link>
@@ -59,6 +76,8 @@ export default function Menu() {
             <Link
               href="/contact"
               className={cx(styles.link, isActive("/contact") && styles.active)}
+              onClick={handleLinkClick}
+              style={{ pointerEvents: pathname === "/" && !isCompleted ? "none" : "auto", opacity: pathname === "/" && !isCompleted ? 0.5 : 1 }}
             >
               CONTACT
             </Link>

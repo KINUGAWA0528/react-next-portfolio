@@ -16,13 +16,20 @@ export default function Article({ data }: Props) {
     (data as News).thumbnail ||
     (data as Event).thumbnail;
 
+  const displayDate =
+    (data as Works).date ??
+    (data as Event).date ??
+    data.publishedAt ??
+    data.createdAt ??
+    "";
+
   return (
     <main>
       <h1 className={styles.title}>{data.title}</h1>
       <p className={styles.description}>{data.description}</p>
       <div className={styles.meta}>
         <Category category={data.category} />
-        <Date date={data.publishedAt ?? ""} />
+        <Date date={displayDate} />
       </div>
       {thumbnail && (
         <Image

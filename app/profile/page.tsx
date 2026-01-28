@@ -31,7 +31,7 @@ export default function Page() {
         <div className={styles.section}>
           <h3 className={styles.title}>スキル</h3>
           <p className={styles.content}>
-            python / HTML / CSS / JavaScript / TypeScript / React / Next.js
+           python / HTML / CSS / JavaScript / TypeScript / React / Next.js
           </p>
         </div>
       </div>

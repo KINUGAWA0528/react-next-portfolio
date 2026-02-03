@@ -48,7 +48,7 @@ const WindowItem = ({
 };
 
 export default function Windows() {
-  const { setIsCompleted } = usePuzzle();
+  const { isCompleted, setIsCompleted } = usePuzzle();
   const [correctlyPlaced, setCorrectlyPlaced] = useState<
     Record<string, boolean>
   >({
@@ -71,8 +71,21 @@ export default function Windows() {
   }, []);
 
   useEffect(() => {
+    if (isCompleted) {
+      setCorrectlyPlaced({
+        system: true,
+        welcome: true,
+        profile: true,
+        photo: true,
+      });
+    }
+  }, [isCompleted]);
+
+  useEffect(() => {
     const allCorrect = Object.values(correctlyPlaced).every((v) => v);
-    setIsCompleted(allCorrect);
+    if (allCorrect) {
+      setIsCompleted(true);
+    }
   }, [correctlyPlaced, setIsCompleted]);
 
   const checkPosition = (id: string, x: number, y: number) => {

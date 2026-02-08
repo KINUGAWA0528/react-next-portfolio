@@ -6,7 +6,8 @@
   background-color: rgba(0, 0, 0, 0.5);
   color: #ffffff;
   overflow: hidden;
-  padding: 330px 0;
+  min-height: 100vh;
+  padding: 0;
 }
 
 .title {
@@ -91,18 +92,22 @@
 
 @media (max-width: 640px) {
   .top {
-    padding: 120px 16px;
+    min-height: 100vh;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .title {
     font-size: 2rem;
-    text-align: left;
+    text-align: center;
   }
 
   .description {
-    text-align: center;
     font-size: 0.9rem;
-    text-align: left;
+    text-align: center;
   }
 
   .bgimg {

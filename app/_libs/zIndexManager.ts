@@ -1,4 +1,4 @@
-export let currentZIndex = 1000;
+export let currentZIndex = 10000;
 
 export const getNextZIndex = () => {
   return ++currentZIndex;

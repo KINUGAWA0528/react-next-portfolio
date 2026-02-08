@@ -19,7 +19,9 @@ export default function Menu() {
     // Only lock navigation on home page when not completed
     if (pathname === "/" && !isCompleted) {
       e.preventDefault();
+      return;
     }
+    close();
   };
 
   // パスが一致するか判定するヘルパー

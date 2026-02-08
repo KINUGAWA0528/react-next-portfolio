@@ -26,6 +26,9 @@
 }
 
 @media (max-width: 640px) {
+  .footer {
+    display: none;
+  }
   .items {
     flex-wrap: wrap;
     gap: 8px 0;

@@ -10,6 +10,19 @@ import { useRef, useState, useEffect } from "react";
 export default function Header() {
   const nodeRef = useRef(null);
   const [zoomLevel, setZoomLevel] = useState(100);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 640);
+    };
+    
+    // 初回実行
+    handleResize();
+    
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     // 初期設定
@@ -38,7 +51,11 @@ export default function Header() {
   };
 
   return (
-    <Draggable nodeRef={nodeRef} handle={`.${styles.bar}`}>
+    <Draggable
+      nodeRef={nodeRef}
+      handle={`.${styles.bar}`}
+      disabled={isMobile}
+    >
       <header className={styles.header} ref={nodeRef}>
         <div className={styles.bar}>
           <span className={styles.title}>Navigation</span>

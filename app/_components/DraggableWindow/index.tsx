@@ -41,7 +41,9 @@ const DraggableWindow = forwardRef<HTMLDivElement, Props>(
     ref,
   ) => {
     const nodeRef = useRef<HTMLDivElement>(null);
-    const [zIndex, setZIndex] = useState(1000);
+    const [zIndex, setZIndex] = useState(
+      style?.zIndex ? Number(style.zIndex) : getNextZIndex(),
+    );
 
     useImperativeHandle(ref, () => nodeRef.current as HTMLDivElement);
 

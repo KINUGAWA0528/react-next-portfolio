@@ -38,8 +38,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--color-bg-painted);
-    color: var(--color-text-unpainted);
+    background-color: #000;
+    color: #fff;
     padding: 24px 16px;
     z-index: 100;
   }

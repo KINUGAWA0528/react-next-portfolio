@@ -5,7 +5,7 @@
   right: 0;
   margin: auto;
   width: fit-content;
-  z-index: 9000;
+  z-index: 50000;
   display: flex;
   flex-direction: column;
   border: 1px solid #fff;
@@ -130,6 +130,32 @@
 
 @media (max-width: 640px) {
   .header {
+    width: auto !important;
+    min-width: auto;
+    left: auto !important;
+    right: 16px !important;
+    top: 16px !important;
+    margin: 0 !important;
+    transform: none !important;
+    padding: 8px;
+    border: 1px solid #fff;
+    background-color: #000;
+    box-shadow: none;
+    border-radius: 4px;
+  }
+
+  .content {
     padding: 0;
+    gap: 0;
+    justify-content: center;
+  }
+
+  .bar {
+    display: none;
+  }
+
+  .divider,
+  .zoomControls {
+    display: none;
   }
 }

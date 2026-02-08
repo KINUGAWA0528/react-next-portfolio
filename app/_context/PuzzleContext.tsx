@@ -5,12 +5,15 @@ import { createContext, useContext, useState, ReactNode, useEffect } from "react
 type PuzzleContextType = {
   isCompleted: boolean;
   setIsCompleted: (completed: boolean) => void;
+  isOpeningCompleted: boolean;
+  setIsOpeningCompleted: (completed: boolean) => void;
 };
 
 const PuzzleContext = createContext<PuzzleContextType | undefined>(undefined);
 
 export function PuzzleProvider({ children }: { children: ReactNode }) {
   const [isCompleted, setIsCompleted] = useState(false);
+  const [isOpeningCompleted, setIsOpeningCompleted] = useState(false);
 
   // Load from localStorage on mount
   useEffect(() => {
@@ -27,7 +30,14 @@ export function PuzzleProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <PuzzleContext.Provider value={{ isCompleted, setIsCompleted: handleSetIsCompleted }}>
+    <PuzzleContext.Provider
+      value={{
+        isCompleted,
+        setIsCompleted: handleSetIsCompleted,
+        isOpeningCompleted,
+        setIsOpeningCompleted,
+      }}
+    >
       {children}
     </PuzzleContext.Provider>
   );

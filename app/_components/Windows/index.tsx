@@ -90,11 +90,6 @@ export default function Windows() {
 
   const checkPosition = (id: string, x: number, y: number) => {
     // Basic quadrant check relative to center start
-    // Top-Left: x < -20, y < -20
-    // Top-Right: x > 20, y < -20
-    // Bottom-Left: x < -20, y > 20
-    // Bottom-Right: x > 20, y > 20
-
     let isCorrect = false;
     const threshold = 20;
 
@@ -116,10 +111,10 @@ export default function Windows() {
     setCorrectlyPlaced((prev) => ({ ...prev, [id]: isCorrect }));
   };
 
-  const systemStyle: React.CSSProperties = { top: "15%", left: "10%" };
-  const welcomeStyle: React.CSSProperties = { top: "15%", left: "60%" };
-  const profileStyle: React.CSSProperties = { top: "55%", left: "5%" };
-  const photoStyle: React.CSSProperties = { top: "60%", left: "65%" };
+  const systemStyle: React.CSSProperties = { top: "40%", left: "35%" };
+  const welcomeStyle: React.CSSProperties = { top: "45%", left: "45%" };
+  const profileStyle: React.CSSProperties = { top: "38%", left: "50%" };
+  const photoStyle: React.CSSProperties = { top: "50%", left: "40%" };
 
   const getStatusStyle = (id: string, baseColor: string) => ({
     color: correctlyPlaced[id] ? "#4ade80" : baseColor,

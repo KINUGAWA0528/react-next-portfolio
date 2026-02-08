@@ -2,10 +2,12 @@
 
 import { useEffect, useState } from "react";
 import styles from "./index.module.css";
+import { usePuzzle } from "@/app/_context/PuzzleContext";
 
 export default function OpeningLoading() {
   const [isVisible, setIsVisible] = useState(true);
   const [shouldRender, setShouldRender] = useState(true);
+  const { setIsOpeningCompleted } = usePuzzle();
 
   useEffect(() => {
     // アニメーション完了後にフェードアウト
@@ -16,13 +18,14 @@ export default function OpeningLoading() {
     // フェードアウト完了後にDOMから削除
     const timer2 = setTimeout(() => {
       setShouldRender(false);
+      setIsOpeningCompleted(true);
     }, 3000);
 
     return () => {
       clearTimeout(timer1);
       clearTimeout(timer2);
     };
-  }, []);
+  }, [setIsOpeningCompleted]);
 
   if (!shouldRender) return null;
 
